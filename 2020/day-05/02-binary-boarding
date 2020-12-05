@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+./01-binary-boarding | awk '
+  BEGIN { 
+    FS="\t"
+    max=0 
+    min=0
+  } 
+  
+  NR > 1 { 
+    max = (max < $4) ? $4 : max 
+    min = (min > $4) ? $4 : mni
+    seats[$4] = 1
+  } 
+  
+  END { 
+    for (i=min; i<=max; i++) {
+      seat = seats[i]
+      if (seat != 1 && seats[i-1] == 1 && seats[i+1] == 1) {
+        print i
+      }
+    }
+  }
+'
