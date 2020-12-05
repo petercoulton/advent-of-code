@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+clear
+awk -f ./passport-processing.awk input.txt
