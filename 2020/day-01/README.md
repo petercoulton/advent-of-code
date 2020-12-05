@@ -3,7 +3,8 @@
 ## Running
 
 ```bash
-$ ./step-1 ./input.txt
-$ ./step-2 ./input.txt
+$ ./01-repair-report.awk ./input.txt
+$ ./02-repair-report.awk ./input.txt
 ```
+
 

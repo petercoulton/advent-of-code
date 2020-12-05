@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+awk -v right=3 -v down=1 -f ./count-collisions.awk ./input.txt
+

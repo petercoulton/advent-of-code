@@ -1,14 +1,14 @@
 #!/usr/bin/env awk -f
 BEGIN {
-  OFS="\t"
+  OFS=","
 }
 
 NR==1 {
-  print "Entry 1", "Entry 2", "Sum", "Product"
+  print "entry1", "entry2", "sum", "product"
 }
 
 {
-  entries[NR-1] = $0;
+  entries[NR] = $0;
 }
 
 END {
