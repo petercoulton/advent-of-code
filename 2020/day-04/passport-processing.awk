@@ -51,5 +51,5 @@ BEGIN {
 }
 
 END {
-  printf "---\nFound %s valid passports out of %s", valid_passports, NR
+  printf "---\nFound %s valid passports out of %s\n", valid_passports, NR
 }

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+awk -f ./passport-processing-with-validation.awk input.txt
+
