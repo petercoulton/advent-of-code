@@ -699,6 +699,13 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
+"@types/jest-matcher-utils@^25.1.0":
+  version "25.1.0"
+  resolved "https://registry.yarnpkg.com/@types/jest-matcher-utils/-/jest-matcher-utils-25.1.0.tgz#62690b9cfb687e89f14a4730d86a1c95e01b00f0"
+  integrity sha512-Rk5aog3pk3iC/Hv8KB64VoAs0Arsl4xMw51GqhhmYrWgH0SP9zzWixfRAPZaKEmGeUYRRFZLlk5LPWRjyNpH0w==
+  dependencies:
+    jest-matcher-utils "*"
+
 "@types/jest@^27.0.3":
   version "27.0.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.0.3.tgz#0cf9dfe9009e467f70a342f0f94ead19842a783a"
@@ -1837,7 +1844,7 @@ jest-leak-detector@^27.4.2:
     jest-get-type "^27.4.0"
     pretty-format "^27.4.2"
 
-jest-matcher-utils@^27.4.2:
+jest-matcher-utils@*, jest-matcher-utils@^27.4.2:
   version "27.4.2"
   resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-27.4.2.tgz#d17c5038607978a255e0a9a5c32c24e984b6c60b"
   integrity sha512-jyP28er3RRtMv+fmYC/PKG8wvAmfGcSNproVTW2Y0P/OY7/hWUOmsPfxN1jOhM+0u2xU984u2yEagGivz9OBGQ==
