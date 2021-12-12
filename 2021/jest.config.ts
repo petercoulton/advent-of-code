@@ -9,7 +9,6 @@ export default async (): Promise<Config.InitialOptions> => {
       'ts-jest': {
         isolatedModules: true,
       },
-    }
+    },
   }
 }
-

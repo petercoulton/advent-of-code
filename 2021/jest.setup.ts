@@ -20,29 +20,34 @@ expect.extend({
       promise: this.promise,
     }
 
-    const hint = this.utils.matcherHint(`toBeCool`, undefined, undefined, options)
+    const hint = this.utils.matcherHint(
+      `toBeCool`,
+      undefined,
+      undefined,
+      options
+    )
 
     const itsCool = received === `cool`
 
     const passMessage = () => strip`
-      ${ hint }
+      ${hint}
       
-      Expected: not ${ printExpected(`cool`) }
-      Received: ${ printReceived(received) }`
+      Expected: not ${printExpected(`cool`)}
+      Received: ${printReceived(received)}`
 
     const failMessage = () => {
       const difference = diff(`cool`, received, { expand: this.expand })
 
       const comparison =
         difference && difference.includes('- Expect')
-        ? `Difference:\n\n${ difference }`
-        : `Expected: ${ printExpected(`cool`) }\n` +
-          `Received: ${ printReceived(received) }`
+          ? `Difference:\n\n${difference}`
+          : `Expected: ${printExpected(`cool`)}\n` +
+            `Received: ${printReceived(received)}`
 
       return strip`
-        ${ hint }
+        ${hint}
         
-        ${ comparison }
+        ${comparison}
       `
     }
 

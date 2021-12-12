@@ -6,21 +6,52 @@ import dedent from 'ts-dedent'
 const readInputFile = (filename: string) =>
   fs.readFileSync(path.join(__dirname, '__input__', filename), 'utf-8')
 
+export const dayOneExampleInput = () =>
+  dedent`
+    199
+    200
+    208
+    210
+    200
+    207
+    240
+    269
+    260
+    263`
+    .split('\n')
+    .map(n => Number.parseInt(n))
+
 export const dayOneInput = () =>
   readInputFile('day-01.txt')
     .split('\n')
     .map(n => Number.parseInt(n))
 
-export const dayTwoInput = <EventType>(): Array<[ EventType, EventData ]> =>
+export const dayTwoInput = <EventType>(): Array<[EventType, EventData]> =>
   readInputFile('day-02.txt')
     .split('\n')
     .map(line => {
-      const [ command, dist ] = line.split(' ')
+      const [command, dist] = line.split(' ')
       return [
         command.toUpperCase() as unknown as EventType,
         { dist: Number.parseInt(dist) } as EventData,
       ]
     })
+
+export const dayThreeExampleInput = () =>
+  dedent(`
+        00100
+        11110
+        10110
+        10111
+        10101
+        01111
+        00111
+        11100
+        10000
+        11001
+        00010
+        01010
+      `)
 
 export const dayThreeInput = () => readInputFile('day-03.txt')
 
@@ -50,7 +81,6 @@ export const dayFourExampleInput = () =>
 
 export const dayFourRealInput = () => readInputFile('day-04.txt')
 
-
 export const dayFiveExampleInput = () =>
   dedent(`0,9 -> 5,9
           8,0 -> 0,8
@@ -61,7 +91,6 @@ export const dayFiveExampleInput = () =>
           0,9 -> 2,9
           3,4 -> 1,4
           0,0 -> 8,8
-          5,5 -> 8,2`
-  )
+          5,5 -> 8,2`)
 
 export const dayFiveRealInput = () => readInputFile('day-05.txt')
