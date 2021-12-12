@@ -94,3 +94,6 @@ export const dayFiveExampleInput = () =>
           5,5 -> 8,2`)
 
 export const dayFiveRealInput = () => readInputFile('day-05.txt')
+
+export const daySixExample = () => `3,4,3,1,2`
+export const daySixInput = () => readInputFile('day-06.txt')
