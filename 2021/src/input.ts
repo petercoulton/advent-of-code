@@ -97,3 +97,6 @@ export const dayFiveRealInput = () => readInputFile('day-05.txt')
 
 export const daySixExample = () => `3,4,3,1,2`
 export const daySixInput = () => readInputFile('day-06.txt')
+
+export const daySevenExample = () => `16,1,2,0,4,2,7,1,2,14`
+export const daySevenInput = () => readInputFile('day-07.txt')
