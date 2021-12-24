@@ -1,11 +1,13 @@
-import { daySevenExample, daySevenInput } from '../input'
+import { realInput } from '../input'
 import { cost, fuelRequired, parseInput } from '../day-07'
+
+const exampleInput = `16,1,2,0,4,2,7,1,2,14`
 
 describe.only('Day 7: The Treachery of Whales', () => {
   describe('part one', () => {
     describe('example', () => {
       it('should calculate the cheapest way to align', async () => {
-        const crabs = parseInput(daySevenExample())
+        const crabs = parseInput(exampleInput)
 
         let fuel
         for (let target = 0; target < 50; target++) {
@@ -21,7 +23,7 @@ describe.only('Day 7: The Treachery of Whales', () => {
     })
     describe('answer', () => {
       it('should calculate the cheapest way to align', async () => {
-        const crabs = parseInput(daySevenInput())
+        const crabs = parseInput(realInput(7))
 
         let fuel
         for (let target = 0; target < 1000; target++) {
@@ -40,7 +42,7 @@ describe.only('Day 7: The Treachery of Whales', () => {
   describe('part two', () => {
     describe('example', () => {
       it('should calculate the cheapest way to align', async () => {
-        const crabs = parseInput(daySevenExample())
+        const crabs = parseInput(exampleInput)
 
         let fuel
         for (let target = 0; target < 10; target++) {
@@ -56,7 +58,7 @@ describe.only('Day 7: The Treachery of Whales', () => {
     })
     describe('answer', () => {
       it('should calculate the cheapest way to align', async () => {
-        const crabs = parseInput(daySevenInput())
+        const crabs = parseInput(realInput(7))
 
         let fuel
         for (let target = 0; target < 1000; target++) {
@@ -74,7 +76,7 @@ describe.only('Day 7: The Treachery of Whales', () => {
 })
 
 describe('calculating fuel requirements', () => {
-  const crabs = parseInput(daySevenExample())
+  const crabs = parseInput(exampleInput)
   it.each([
     [1, 41],
     [2, 37],
@@ -128,7 +130,7 @@ describe('calculating fuel requirements', () => {
   })
 
   it('should keep calculating until fuel consumption increases', async () => {
-    const crabs = parseInput(daySevenInput())
+    const crabs = parseInput(realInput(7))
     let fuel
     for (let target = 0; target < 1000; target++) {
       fuel = fuelRequired(crabs, target)

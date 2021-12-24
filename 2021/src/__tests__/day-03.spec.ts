@@ -1,25 +1,31 @@
-import { dayThreeExampleInput, dayThreeInput } from '../input'
+import dedent from 'ts-dedent'
 
-import {
-  calcEpsilonRate,
-  calcGammaRate,
-  calcLifeSupportRating,
-  calcPowerConsumption,
-  digitise,
-  filterByBitCriteria,
-  groupDigits,
-  leastCommonDigits,
-  mostCommonDigits,
-} from '../day-03'
+import { realInput } from '../input'
+import { calcEpsilonRate, calcGammaRate, calcLifeSupportRating, calcPowerConsumption, digitise, filterByBitCriteria, groupDigits, leastCommonDigits, mostCommonDigits } from '../day-03'
+
+const exampleInput =
+  dedent`
+        00100
+        11110
+        10110
+        10111
+        10101
+        01111
+        00111
+        11100
+        10000
+        11001
+        00010
+        01010
+      `
 
 describe.only('Day 3: Binary Diagnostic', () => {
   describe('part one', () => {
     describe('example', () => {
       it('should calculate power consumption', async () => {
-        const input = dayThreeExampleInput()
-        const groupedDigits = groupDigits(digitise(input))
-        const [gammaRate, gammaRateDigits] = calcGammaRate(groupedDigits)
-        const [epsilonRate, epsilonRateDigits] = calcEpsilonRate(groupedDigits)
+        const groupedDigits = groupDigits(digitise(exampleInput))
+        const [ gammaRate, gammaRateDigits ] = calcGammaRate(groupedDigits)
+        const [ epsilonRate, epsilonRateDigits ] = calcEpsilonRate(groupedDigits)
         const powerConsumption = gammaRate * epsilonRate
 
         expect(gammaRateDigits).toEqual('10110')
@@ -32,8 +38,8 @@ describe.only('Day 3: Binary Diagnostic', () => {
 
     describe('answer', () => {
       it('should calculate power consumption', async () => {
-        const input = dayThreeInput()
-        const [gammaRate, epsilonRate, powerConsumption] =
+        const input = realInput(3)
+        const [ gammaRate, epsilonRate, powerConsumption ] =
           calcPowerConsumption(input)
 
         expect(gammaRate).toEqual(2576)
@@ -45,16 +51,15 @@ describe.only('Day 3: Binary Diagnostic', () => {
 
   describe('part two', () => {
     describe('example', () => {
-      const exampleInput = dayThreeExampleInput()
       const reportDigits = digitise(exampleInput)
       const oxygenGeneratorRating = filterByBitCriteria(
         reportDigits,
-        mostCommonDigits
+        mostCommonDigits,
       ).join('')
       const oxygenGeneratorRatingInt = Number.parseInt(oxygenGeneratorRating, 2)
       const co2ScrubberRating = filterByBitCriteria(
         reportDigits,
-        leastCommonDigits
+        leastCommonDigits,
       ).join('')
       const co2ScrubberRatingInt = Number.parseInt(co2ScrubberRating, 2)
 
@@ -74,8 +79,8 @@ describe.only('Day 3: Binary Diagnostic', () => {
     })
 
     describe('answer', () => {
-      const input = dayThreeInput()
-      const [oxygenGeneratorRating, co2ScrubberRating, lifeSupportRating] =
+      const input = realInput(3)
+      const [ oxygenGeneratorRating, co2ScrubberRating, lifeSupportRating ] =
         calcLifeSupportRating(input)
 
       it('should calculate the oxygen generator rating', async () => {
@@ -93,26 +98,23 @@ describe.only('Day 3: Binary Diagnostic', () => {
   })
 })
 
-describe('day two, Binary Diagnostic', () => {
-  const exampleInput = dayThreeExampleInput()
-  const realInput = dayThreeInput()
-
+describe('day three, Binary Diagnostic', () => {
   describe('part one, power consumption', () => {
     it('should group digits', async () => {
       expect(groupDigits(digitise('11111\n00000'))).toEqual([
-        [1, 0],
-        [1, 0],
-        [1, 0],
-        [1, 0],
-        [1, 0],
+        [ 1, 0 ],
+        [ 1, 0 ],
+        [ 1, 0 ],
+        [ 1, 0 ],
+        [ 1, 0 ],
       ])
     })
 
     describe('first example', () => {
       it('should calculate the example power consumption', async () => {
         const groupedDigits = groupDigits(digitise(exampleInput))
-        const [gammaRate, gammaRateDigits] = calcGammaRate(groupedDigits)
-        const [epsilonRate, epsilonRateDigits] = calcEpsilonRate(groupedDigits)
+        const [ gammaRate, gammaRateDigits ] = calcGammaRate(groupedDigits)
+        const [ epsilonRate, epsilonRateDigits ] = calcEpsilonRate(groupedDigits)
         const powerConsumption = gammaRate * epsilonRate
 
         expect(gammaRateDigits).toEqual('10110')
@@ -124,8 +126,8 @@ describe('day two, Binary Diagnostic', () => {
     })
 
     it('should calculate the real power consumption', async () => {
-      const [gammaRate, epsilonRate, powerConsumption] =
-        calcPowerConsumption(realInput)
+      const [ gammaRate, epsilonRate, powerConsumption ] =
+        calcPowerConsumption(realInput(3))
 
       expect(gammaRate).toEqual(2576)
       expect(epsilonRate).toEqual(1519)
@@ -141,37 +143,37 @@ describe('day two, Binary Diagnostic', () => {
         describe('when calculating the most common values', () => {
           it('should use 1 when there are equally common', async () => {
             expect(
-              mostCommonDigits(groupDigits(digitise('11111\n00000')))
-            ).toEqual([1, 1, 1, 1, 1])
+              mostCommonDigits(groupDigits(digitise('11111\n00000'))),
+            ).toEqual([ 1, 1, 1, 1, 1 ])
           })
         })
 
         describe('when calculating the least common values', () => {
           it('should use 0 when there are equally common', async () => {
             expect(
-              leastCommonDigits(groupDigits(digitise('11111\n00000')))
-            ).toEqual([0, 0, 0, 0, 0])
+              leastCommonDigits(groupDigits(digitise('11111\n00000'))),
+            ).toEqual([ 0, 0, 0, 0, 0 ])
           })
         })
 
         it('should find the least and most common digits', async () => {
           expect(mostCommonDigits(groupDigits(digitise(exampleInput)))).toEqual(
-            [1, 0, 1, 1, 0]
+            [ 1, 0, 1, 1, 0 ],
           )
           expect(
-            leastCommonDigits(groupDigits(digitise(exampleInput)))
-          ).toEqual([0, 1, 0, 0, 1])
+            leastCommonDigits(groupDigits(digitise(exampleInput))),
+          ).toEqual([ 0, 1, 0, 0, 1 ])
         })
       })
 
       const oxygenGeneratorRating = filterByBitCriteria(
         reportDigits,
-        mostCommonDigits
+        mostCommonDigits,
       ).join('')
       const oxygenGeneratorRatingInt = Number.parseInt(oxygenGeneratorRating, 2)
       const co2ScrubberRating = filterByBitCriteria(
         reportDigits,
-        leastCommonDigits
+        leastCommonDigits,
       ).join('')
       const co2ScrubberRatingInt = Number.parseInt(co2ScrubberRating, 2)
 
@@ -191,8 +193,8 @@ describe('day two, Binary Diagnostic', () => {
     })
 
     it('should calculate the life support rating of the submarine?', async () => {
-      const [oxygenGeneratorRating, co2ScrubberRating, lifeSupportRating] =
-        calcLifeSupportRating(realInput)
+      const [ oxygenGeneratorRating, co2ScrubberRating, lifeSupportRating ] =
+        calcLifeSupportRating(realInput(3))
 
       expect(oxygenGeneratorRating).toEqual(3597)
       expect(co2ScrubberRating).toEqual(1389)

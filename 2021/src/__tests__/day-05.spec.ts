@@ -1,18 +1,24 @@
-import strip from 'ts-dedent'
+import dedent from 'ts-dedent'
 
-import { dayFiveExampleInput, dayFiveRealInput } from '../input'
-import {
-  countOverlappingPoints,
-  drawDiagram,
-  parseInput,
-  plotOceanFloor,
-} from '../day-05'
+import { realInput } from '../input'
+import { countOverlappingPoints, drawDiagram, parseInput, plotOceanFloor } from '../day-05'
+
+const exampleInput =
+  dedent(`0,9 -> 5,9
+          8,0 -> 0,8
+          9,4 -> 3,4
+          2,2 -> 2,1
+          7,0 -> 7,4
+          6,4 -> 2,0
+          0,9 -> 2,9
+          3,4 -> 1,4
+          0,0 -> 8,8
+          5,5 -> 8,2`)
 
 describe.only('Day 5: Hydrothermal Venture', () => {
   describe('part one', () => {
     describe('example', () => {
-      const input = dayFiveExampleInput()
-      const lines = parseInput(input)
+      const lines = parseInput(exampleInput)
       const straightLines = lines.filter(
         ([x1, y1, x2, y2]) => x1 == x2 || y1 == y2
       )
@@ -21,7 +27,7 @@ describe.only('Day 5: Hydrothermal Venture', () => {
       it('should draw the sea floor diagram', async () => {
         const output = drawDiagram(oceanFloor, 10, 10)
 
-        expect(output).toEqual(strip`
+        expect(output).toEqual(dedent`
            .......1..
            ..1....1..
            ..1....1..
@@ -44,8 +50,7 @@ describe.only('Day 5: Hydrothermal Venture', () => {
 
     describe('answer', () => {
       it('should identify the number of overlapping points', async () => {
-        const input = dayFiveRealInput()
-        const lines = parseInput(input)
+        const lines = parseInput(realInput(5))
         const straightLines = lines.filter(
           ([x1, y1, x2, y2]) => x1 == x2 || y1 == y2
         )
@@ -59,14 +64,13 @@ describe.only('Day 5: Hydrothermal Venture', () => {
 
   describe('part two', () => {
     describe('example', () => {
-      const input = dayFiveExampleInput()
-      const lines = parseInput(input)
+      const lines = parseInput(exampleInput)
       const oceanFloor = plotOceanFloor(lines, 10, 10)
 
       it('should draw the sea floor diagram', async () => {
         const output = drawDiagram(oceanFloor, 10, 10)
 
-        expect(output).toEqual(strip`
+        expect(output).toEqual(dedent`
            1.1....11.
            .111...2..
            ..2.1.111.
@@ -89,8 +93,7 @@ describe.only('Day 5: Hydrothermal Venture', () => {
 
     describe('answer', () => {
       it('should identify the number of overlapping points', async () => {
-        const input = dayFiveRealInput()
-        const lines = parseInput(input)
+        const lines = parseInput(realInput(5))
         const oceanFloor = plotOceanFloor(lines)
         const overlappingPoints = countOverlappingPoints(oceanFloor)
 
@@ -101,8 +104,7 @@ describe.only('Day 5: Hydrothermal Venture', () => {
 })
 
 it('should have a repl', async () => {
-  const input = dayFiveExampleInput()
-  const lines = parseInput(input)
+  const lines = parseInput(exampleInput)
   const straightLines = lines.filter(([x1, y1, x2, y2]) => x1 == x2 || y1 == y2)
 
   const part1OceanFloor = plotOceanFloor(straightLines, 10, 10)
@@ -111,7 +113,7 @@ it('should have a repl', async () => {
   const part1Output = drawDiagram(part1OceanFloor, 10, 10).split('\n')
   const part2Output = drawDiagram(part2OceanFloor, 10, 10).split('\n')
 
-  const part1expected = strip`
+  const part1expected = dedent`
            .......1..
            ..1....1..
            ..1....1..
@@ -123,7 +125,7 @@ it('should have a repl', async () => {
            ..........
            222111....
         `.split('\n')
-  const part2expected = strip`
+  const part2expected = dedent`
            1.1....11.
            .111...2..
            ..2.1.111.

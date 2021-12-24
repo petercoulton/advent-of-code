@@ -1,20 +1,34 @@
+import dedent from 'ts-dedent'
 import fc from 'fast-check'
 
-import { dayOneExampleInput, dayOneInput } from '../input'
+import { realInput } from '../input'
 import { countDepthIncreases, parseInput, rollingWindow } from '../day-01'
+
+const exampleInput =
+  dedent`
+    199
+    200
+    208
+    210
+    200
+    207
+    240
+    269
+    260
+    263`
 
 describe.only('Day 1: Sonar Sweep', () => {
   describe('part one', () => {
     describe('example', () => {
       it('should count the number of depth measurement increases', async () => {
-        const values = parseInput(dayOneExampleInput())
+        const values = parseInput(exampleInput)
         expect(countDepthIncreases(values)).toBe(7)
       })
     })
 
     describe('answer', () => {
       it('should count the number of depth measurement increases', async () => {
-        const values = parseInput(dayOneInput())
+        const values = parseInput(realInput(1))
         expect(countDepthIncreases(values)).toBe(1527)
       })
     })
@@ -23,14 +37,14 @@ describe.only('Day 1: Sonar Sweep', () => {
   describe('part two', () => {
     describe('example', () => {
       it('should count the number of depth measurement increases', async () => {
-        const values = parseInput(dayOneExampleInput())
+        const values = parseInput(exampleInput)
         expect(countDepthIncreases(values, 3)).toBe(5)
       })
     })
 
     describe('answer', () => {
       it('should count the number of depth measurement increases', async () => {
-        const values = parseInput(dayOneInput())
+        const values = parseInput(realInput(1))
         expect(countDepthIncreases(values, 3)).toBe(1575)
       })
     })
