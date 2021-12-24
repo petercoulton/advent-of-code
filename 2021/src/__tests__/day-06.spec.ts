@@ -1,5 +1,5 @@
-import { daySixExample, daySixInput } from './input'
-import { parseInput, simulateDays } from './day-06'
+import { daySixExample, daySixInput } from '../input'
+import { parseInput, simulateDays } from '../day-06'
 
 describe('Day 6: Lanternfish', () => {
   describe('part one', () => {

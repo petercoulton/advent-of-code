@@ -1,5 +1,5 @@
-import { dayFourExampleInput, dayFourRealInput } from './input'
-import { makeSquare, parseInput, play } from './day-04'
+import { dayFourExampleInput, dayFourRealInput } from '../input'
+import { makeSquare, parseInput, play } from '../day-04'
 
 describe.only('Day 4: Giant Squid', () => {
   describe('part one', () => {

@@ -33,7 +33,7 @@ export const realInput = (day: Day) =>
   readInputFile(`day-${ String(day).padStart(2, '0') }.txt`)
 
 const readInputFile = (filename: string) =>
-  fs.readFileSync(path.join(__dirname, filename), 'utf-8')
+  fs.readFileSync(path.join(__dirname, '..', 'data', filename), 'utf-8')
 
 export const dayOneInput = () => realInput(1)
 export const dayOneExampleInput = () =>

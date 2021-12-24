@@ -1,7 +1,7 @@
 import { EventData, EventFrom, interpret } from 'xstate'
 
-import { EventType, machine, model, parseInput } from './day-02'
-import { dayTwoInput } from './input'
+import { EventType, machine, model, parseInput } from '../day-02'
+import { dayTwoInput } from '../input'
 
 describe.only('Day 2: Dive!', () => {
   const input = parseInput<EventType>(dayTwoInput())

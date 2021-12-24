@@ -1,4 +1,4 @@
-import { dayThreeExampleInput, dayThreeInput } from './input'
+import { dayThreeExampleInput, dayThreeInput } from '../input'
 
 import {
   calcEpsilonRate,
@@ -10,7 +10,7 @@ import {
   groupDigits,
   leastCommonDigits,
   mostCommonDigits,
-} from './day-03'
+} from '../day-03'
 
 describe.only('Day 3: Binary Diagnostic', () => {
   describe('part one', () => {

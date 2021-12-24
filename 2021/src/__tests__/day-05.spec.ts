@@ -1,12 +1,12 @@
 import strip from 'ts-dedent'
 
-import { dayFiveExampleInput, dayFiveRealInput } from './input'
+import { dayFiveExampleInput, dayFiveRealInput } from '../input'
 import {
   countOverlappingPoints,
   drawDiagram,
   parseInput,
   plotOceanFloor,
-} from './day-05'
+} from '../day-05'
 
 describe.only('Day 5: Hydrothermal Venture', () => {
   describe('part one', () => {

@@ -1,7 +1,7 @@
 import fc from 'fast-check'
 
-import { dayOneExampleInput, dayOneInput } from './input'
-import { countDepthIncreases, parseInput, rollingWindow } from './day-01'
+import { dayOneExampleInput, dayOneInput } from '../input'
+import { countDepthIncreases, parseInput, rollingWindow } from '../day-01'
 
 describe.only('Day 1: Sonar Sweep', () => {
   describe('part one', () => {

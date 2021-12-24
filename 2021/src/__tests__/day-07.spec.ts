@@ -1,5 +1,5 @@
-import { daySevenExample, daySevenInput } from './input'
-import { cost, fuelRequired, parseInput } from './day-07'
+import { daySevenExample, daySevenInput } from '../input'
+import { cost, fuelRequired, parseInput } from '../day-07'
 
 describe.only('Day 7: The Treachery of Whales', () => {
   describe('part one', () => {
