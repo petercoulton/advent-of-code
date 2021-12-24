@@ -1,20 +1,20 @@
 import fc from 'fast-check'
 
 import { dayOneExampleInput, dayOneInput } from './input'
-import { countDepthIncreases, rollingWindow } from './day-01'
+import { countDepthIncreases, parseInput, rollingWindow } from './day-01'
 
 describe.only('Day 1: Sonar Sweep', () => {
   describe('part one', () => {
     describe('example', () => {
       it('should count the number of depth measurement increases', async () => {
-        const values = dayOneExampleInput()
+        const values = parseInput(dayOneExampleInput())
         expect(countDepthIncreases(values)).toBe(7)
       })
     })
 
     describe('answer', () => {
       it('should count the number of depth measurement increases', async () => {
-        const values = dayOneInput()
+        const values = parseInput(dayOneInput())
         expect(countDepthIncreases(values)).toBe(1527)
       })
     })
@@ -23,14 +23,14 @@ describe.only('Day 1: Sonar Sweep', () => {
   describe('part two', () => {
     describe('example', () => {
       it('should count the number of depth measurement increases', async () => {
-        const values = dayOneExampleInput()
+        const values = parseInput(dayOneExampleInput())
         expect(countDepthIncreases(values, 3)).toBe(5)
       })
     })
 
     describe('answer', () => {
       it('should count the number of depth measurement increases', async () => {
-        const values = dayOneInput()
+        const values = parseInput(dayOneInput())
         expect(countDepthIncreases(values, 3)).toBe(1575)
       })
     })

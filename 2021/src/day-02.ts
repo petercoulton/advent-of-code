@@ -1,5 +1,15 @@
 import { createModel } from 'xstate/lib/model'
-import { EventFrom } from 'xstate'
+import { EventData, EventFrom } from 'xstate'
+
+export const parseInput = <EventType>(input: string): Array<[EventType, EventData]> =>
+  input.split('\n')
+       .map(line => {
+         const [command, dist] = line.split(' ')
+         return [
+           command.toUpperCase() as unknown as EventType,
+           { dist: Number.parseInt(dist) } as EventData,
+         ]
+       })
 
 export const model = createModel(
   {

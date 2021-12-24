@@ -1,3 +1,6 @@
+export const parseInput = (input: string) =>
+  input.split('\n').map(n => Number.parseInt(n))
+
 export const rollingWindow =
   (size: number) => (n: number, i: number, values: number[]) =>
     i + size > values.length ? [] : [values.slice(i, i + size)]

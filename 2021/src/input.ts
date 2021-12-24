@@ -1,11 +1,41 @@
 import fs from 'fs'
 import path from 'path'
-import { EventData } from 'xstate'
 import dedent from 'ts-dedent'
+
+type Day =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17
+  | 18
+  | 19
+  | 20
+  | 21
+  | 22
+  | 23
+  | 24
+  | 25
+
+export const realInput = (day: Day) =>
+  readInputFile(`day-${ String(day).padStart(2, '0') }.txt`)
 
 const readInputFile = (filename: string) =>
   fs.readFileSync(path.join(__dirname, '__input__', filename), 'utf-8')
 
+export const dayOneInput = () => realInput(1)
 export const dayOneExampleInput = () =>
   dedent`
     199
@@ -18,25 +48,11 @@ export const dayOneExampleInput = () =>
     269
     260
     263`
-    .split('\n')
-    .map(n => Number.parseInt(n))
 
-export const dayOneInput = () =>
-  readInputFile('day-01.txt')
-    .split('\n')
-    .map(n => Number.parseInt(n))
 
-export const dayTwoInput = <EventType>(): Array<[EventType, EventData]> =>
-  readInputFile('day-02.txt')
-    .split('\n')
-    .map(line => {
-      const [command, dist] = line.split(' ')
-      return [
-        command.toUpperCase() as unknown as EventType,
-        { dist: Number.parseInt(dist) } as EventData,
-      ]
-    })
+export const dayTwoInput = () => realInput(2)
 
+export const dayThreeInput = () => realInput(3)
 export const dayThreeExampleInput = () =>
   dedent(`
         00100
@@ -53,8 +69,8 @@ export const dayThreeExampleInput = () =>
         01010
       `)
 
-export const dayThreeInput = () => readInputFile('day-03.txt')
 
+export const dayFourRealInput = () => realInput(4)
 export const dayFourExampleInput = () =>
   dedent(`
     7,4,9,5,11,17,23,2,0,14,21,24,10,16,13,6,15,25,12,22,18,20,8,19,3,26,1
@@ -79,8 +95,8 @@ export const dayFourExampleInput = () =>
     
     `)
 
-export const dayFourRealInput = () => readInputFile('day-04.txt')
 
+export const dayFiveRealInput = () => realInput(5)
 export const dayFiveExampleInput = () =>
   dedent(`0,9 -> 5,9
           8,0 -> 0,8
@@ -93,10 +109,10 @@ export const dayFiveExampleInput = () =>
           0,0 -> 8,8
           5,5 -> 8,2`)
 
-export const dayFiveRealInput = () => readInputFile('day-05.txt')
 
+export const daySixInput = () => realInput(6)
 export const daySixExample = () => `3,4,3,1,2`
-export const daySixInput = () => readInputFile('day-06.txt')
 
+export const daySevenInput = () => realInput(7)
 export const daySevenExample = () => `16,1,2,0,4,2,7,1,2,14`
-export const daySevenInput = () => readInputFile('day-07.txt')
+
