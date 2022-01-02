@@ -1,3 +1,5 @@
+import colors from 'colors'
+
 export const permute = <T>(input: Array<T[]>): Array<T[]> => {
   if (input.length == 0) {
     return input

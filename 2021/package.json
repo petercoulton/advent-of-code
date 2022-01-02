@@ -1,11 +1,14 @@
 {
   "name": "@advent-of-code/2021",
   "private": true,
+  "type": "commonjs",
   "scripts": {
     "test": "jest",
-    "dev": "ts-node-dev --respawn ./src/scratch.ts "
+    "ts-dev": "ts-node-dev --respawn"
   },
   "dependencies": {
+    "chalk": "^5.0.0",
+    "colors": "^1.4.0",
     "ts-dedent": "^2.2.0",
     "xstate": "^4.26.1"
   },
@@ -13,6 +16,7 @@
     "@swc/core": "^1.2.118",
     "@swc/helpers": "^0.2.14",
     "@tsconfig/recommended": "^1.0.1",
+    "@types/colors": "^1.2.1",
     "@types/jest": "^27.0.3",
     "@types/jest-matcher-utils": "^25.1.0",
     "@types/node": "^16.11.11",
